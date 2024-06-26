@@ -46,11 +46,11 @@ from lamindb_setup import settings
 API_URL = "https://qjv38prsit.us-west-2.awsapprunner.com"  # Update API_URL according to the region where you to deploy.
 DB_SERVER_URL = "postgresql://postgres:<PASSWORD>@<HOST>:<PORT>/postgres"
 NAME = "YOUR-INSTANCE-NAME"
-SCHEMA = "bionty"
+SCHEMA_STR = "bionty"
 STORAGE = "s3://YOUR-BUCKET-NAME"
 
 response = requests.post(
-    f"{API_URL}/instance/create?db_server_url={DB_SERVER_URL}&name={NAME}&schema_str={SCHEMA}&storage={STORAGE}",
+    f"{API_URL}/instance/create?db_server_url={DB_SERVER_URL}&name={NAME}&schema_str={SCHEMA_STR}&storage={STORAGE}",
     headers={"authentication": f"Bearer {settings.user.access_token}"},
 )
 ```
