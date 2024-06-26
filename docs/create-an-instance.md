@@ -43,7 +43,7 @@ To create the instance, run the following python code:
 import requests
 from lamindb_setup import settings
 
-API_URL = "https://qjv38prsit.us-west-2.awsapprunner.com"  # Update API_URL according to the region where you to deploy.
+API_URL = "https://us-west-2.api.lamin.ai"  # Update API_URL according to the region where you to deploy.
 DB_SERVER_URL = "postgresql://postgres:<PASSWORD>@<HOST>:<PORT>/postgres"
 NAME = "YOUR-INSTANCE-NAME"
 SCHEMA_STR = "bionty"
