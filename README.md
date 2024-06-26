@@ -1,1 +1,5 @@
-For detailed instructions on how to create a Lamin instance through our rest API, please refer to the [Lamin Instance Creation Guide](docs/create-an-instance.md).
+# Code-less mirror of laminhub
+
+This repo serves to collect issues & mirror releases.
+
+See the [guide on creating a LaminDB instance on LaminHub](docs/create-an-instance.md).
