@@ -54,3 +54,5 @@ response = requests.post(
     headers={"authentication": f"Bearer {settings.user.access_token}"},
 )
 ```
+
+Upon success, navigate to `https://lamin.ai/handle/instance-name`, where `handle` is your user handle and `instance-name` the `NAME` parameter above.
