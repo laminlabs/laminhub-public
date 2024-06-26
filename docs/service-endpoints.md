@@ -8,7 +8,7 @@ Our services are available in the following regions with the respective API URLs
 
 ### US East (N. Virginia) - `us-east-1`
 
-- **API URL:** `https://5uwksmaz3f.us-east-1.awsapprunner.com`
+- **API URL:** `https://us-east-1.api.lamin.ai`
 - **IPs:**
   - `100.28.137.170`
   - `54.159.231.46`
@@ -16,7 +16,7 @@ Our services are available in the following regions with the respective API URLs
 
 ### US West (N. California) - `us-west-2`
 
-- **API URL:** `https://qjv38prsit.us-west-2.awsapprunner.com`
+- **API URL:** `https://us-west-2.api.lamin.ai`
 - **IPs:**
   - `44.229.134.201`
   - `52.34.14.66`
@@ -24,7 +24,7 @@ Our services are available in the following regions with the respective API URLs
 
 ### EU Central (Frankfurt) - `eu-central-1`
 
-- **API URL:** `https://puw3cdgszc.eu-central-1.awsapprunner.com`
+- **API URL:** `https://eu-central-1.api.lamin.ai`
 - **IPs:**
   - `3.73.231.249`
   - `35.156.185.72`
