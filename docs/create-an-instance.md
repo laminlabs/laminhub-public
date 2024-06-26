@@ -1,22 +1,24 @@
-# Lamin Instance Creation Guide
+# LaminDB instance creation
 
-This guide explains how to create a Lamin instance using a provided API endpoint.
+This guide explains how to create a LaminDB instance that's fully deployed in LaminHub and comes with default SQL permission roles.
 
+Two things happen in addition to the open-source `lamin init`:
+- connecting the LaminHub backend to your Postgres database
+- creating SQL permission roles `read`, `write`, and `admin` and synching them with storage permissions
 
 ## Prerequisites
 
-### Database Server
+### Database server
 
 Ensure you have access to a PostgreSQL server with a default `postgres` database and a default superuser `postgres`.
-If needed, you can whitelist api server IP addresses provided [here](service-endpoints.md) for your region.
+
+Ensure that our LaminHub backend servers are whitelisted so that our servers can access your dataabase ([here](service-endpoints.md)). Pay attention to your region.
 
 ### Storage
 
-You can optionally provide your own S3 bucket when creating an instance. If you don't want to do that, you can skip this step.
+You can provide your own S3 bucket when creating an instance. If you don't want to do that, you can skip this step.
 
-To give Lamin access to your bucket, [this](bucket-policy.md) policy needs to be attached. 
-- This can be [manually through the AWS console](https://docs.aws.amazon.com/AmazonS3/latest/userguide/add-bucket-policy.html)
-- This can be also be done through lamin.ai once your instance is setup 
+To give Lamin access to your bucket, [this](bucket-policy.md) policy needs to be attached ([here is how to do it manually through the AWS console](https://docs.aws.amazon.com/AmazonS3/latest/userguide/add-bucket-policy.html)).
 
 ## Endpoint Parameters
 
