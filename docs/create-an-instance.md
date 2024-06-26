@@ -35,9 +35,9 @@ Optionals:
 
 Install `lamindb_setup` via `pip install lamindb_setup` in case you don't have a lamindb installation.
 
-In your terminal, run `lamin login` to ensure you're properly authenticated.
+In your terminal, run `lamin login` to ensure you're authenticated.
 
-Run the following python code.
+To create the instance, run the following python code:
 
 ```python
 import requests
