@@ -1,5 +1,7 @@
 # Create a LaminDB instance on LaminHub
 
+:warning: Currently, these instructions are for customers only.
+
 This guide explains how to create a LaminDB instance that's fully deployed in LaminHub and comes with default SQL permission roles.
 
 Two things happen in addition to the open-source `lamin init`:
