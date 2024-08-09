@@ -51,8 +51,8 @@ NAME = "YOUR-INSTANCE-NAME"
 SCHEMA_STR = "bionty"
 STORAGE = "s3://YOUR-BUCKET-NAME"
 
-response = requests.post(
-    f"{API_URL}/instance/create?db_server_url={DB_SERVER_URL}&name={NAME}&schema_str={SCHEMA_STR}&storage={STORAGE}",
+response = requests.put(
+    f"{API_URL}/instances?db_server_url={DB_SERVER_URL}&name={NAME}&schema_str={SCHEMA_STR}&storage={STORAGE}",
     headers={"authentication": f"Bearer {settings.user.access_token}"},
 )
 ```
