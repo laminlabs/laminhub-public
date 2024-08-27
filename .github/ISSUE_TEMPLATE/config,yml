@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+    - name: Lamindb issues
+      url: https://github.com/laminlabs/lamindb
+      about: If you have issues with lamindb, please report them here.
