@@ -1,0 +1,23 @@
+name: Bug report
+description: Report something that is broken or incorrect
+labels: bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Note**: This is a public repository! Do not reveal any internal information.
+        Please consider reading [this guide](https://matthewrocklin.com/blog/work/2018/02/28/minimal-bug-reports) detailing how to provide the necessary information for us to reproduce your bug.
+        In brief:
+          * Please provide exact steps how to reproduce the bug.
+          * In case it's not clear what's causing this bug, please try to provide as much detail as possible.
+
+  - type: textarea
+    id: report
+    attributes:
+      label: Report
+      description: A clear and concise description of what the bug is.
+      placeholder: |
+        This is a public repository!
+        Do not reveal any internal information.
+    validations:
+      required: true

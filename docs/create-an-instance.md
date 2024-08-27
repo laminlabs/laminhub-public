@@ -30,6 +30,7 @@ To give Lamin access to your bucket, attach [this AWS permission policy](bucket-
 - `NAME`: The name of the LaminDB instance
 
 Optionals:
+
 - `SCHEMA`: The list of schemas you want to mount, e.g., `bionty,wetlab`
 - `STORAGE`: The S3 bucket URI in the format `s3://my-bucket`
 
