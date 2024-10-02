@@ -1,6 +1,6 @@
 # `laminhub-public`
 
-Version: `0.27.0`
+Version: `0.28.0`
 
 This public repository allows you to make issues & follow new releases as for an open-source project. It doesn't contain the closed-source `laminhub` code.
 
