@@ -27,11 +27,16 @@ To connect your PostgreSQL database to Lamin services:
 
 ### 1. Database Prerequisites
 
-Ensure your PostgreSQL database has the default `postgres` user with superuser privileges. When setting up a new PostgreSQL instance, this user is typically created automatically.
+Ensure your PostgreSQL database meets these requirements:
+
+- Has the default `postgres` user with superuser privileges
+- Has a default database named `postgres`
+
+When setting up a new PostgreSQL instance, both the `postgres` user and `postgres` database are typically created automatically. If using a custom setup, ensure both exist.
 
 ### 2. Whitelist Lamin Service IPs
 
-After confirming your PostgreSQL user setup, you need to whitelist the appropriate Lamin outbound IP addresses for your region in your database's security group or firewall.
+After confirming your PostgreSQL setup, you need to whitelist the appropriate Lamin outbound IP addresses for your region in your database's security group or firewall.
 
 Refer to our [Service Endpoints and IP Whitelisting documentation](service-endpoints.md) to find the correct IPs to whitelist based on your region.
 
