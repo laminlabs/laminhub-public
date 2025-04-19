@@ -1,8 +1,8 @@
-# Service Endpoints and IP Whitelisting
+# Service endpoints and IP whitelisting
 
 This document provides information about the service endpoints available and the required outbound IP addresses that need to be whitelisted to access our services.
 
-## Service Endpoints
+## Service endpoints
 
 Our services are available in the following regions with the respective API URLs and outbound IPs:
 

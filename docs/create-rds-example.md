@@ -1,4 +1,4 @@
-# Creating an Amazon RDS Instance with Pulumi
+# Creating an Amazon RDS instance with Pulumi
 
 This guide demonstrates how to create a PostgreSQL RDS instance in AWS using Pulumi that can be accessed by Lamin applications.
 
@@ -117,7 +117,7 @@ db = aws.rds.Instance(
 pulumi.export("endpoint", db.endpoint)
 ```
 
-## Further Reading
+## Further reading
 
-- [Pulumi AWS Documentation](https://www.pulumi.com/registry/packages/aws/)
-- [Amazon RDS Documentation](https://aws.amazon.com/rds/)
+- [Pulumi AWS documentation](https://www.pulumi.com/registry/packages/aws/)
+- [Amazon RDS documentation](https://aws.amazon.com/rds/)
