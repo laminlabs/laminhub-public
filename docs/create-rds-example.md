@@ -103,6 +103,7 @@ db = aws.rds.Instance(
     instance_class="db.t3.micro",
     allocated_storage=20,
     db_name="postgres",
+    # Lamin requires the default postgres superuser for database access
     username="postgres",
     password="mypassword",
     vpc_security_group_ids=[security_group.id],
