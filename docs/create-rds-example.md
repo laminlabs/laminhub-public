@@ -12,6 +12,7 @@ This guide demonstrates how to create a PostgreSQL RDS instance in AWS using Pul
 The following Pulumi program creates an RDS PostgreSQL instance with proper networking and security configurations:
 
 ```python
+# __main__.py
 import pulumi
 import pulumi_aws as aws
 
