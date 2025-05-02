@@ -43,3 +43,7 @@ Refer to our [service endpoints and IP whitelisting documentation](service-endpo
 ### 3. RDS configuration example
 
 Refer to our [create RDS example](create-rds-example.md) for a Pulumi implementation that includes the proper network configuration and security settings.
+
+### 4. Register your database server
+
+Once your PostgreSQL database is configured, you need to register it with Lamin using the REST API. For detailed instructions refer to our [Database Server API Documentation](db-server-api.md).
