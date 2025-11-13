@@ -11,32 +11,24 @@ Two things happen in addition to the open-source `lamin init`:
 
 ## Prerequisites
 
-### Database server
+If you want to use your own infrastructure to create the instance (PostgreSQL database or S3 bucket), it must be properly configured for Lamin access.
 
-Ensure you have access to a PostgreSQL server with a default database called `postgres` and a default superuser called `postgres`.
+Refer to our [configuring on-premises data infrastructure](configure-on-prem-data-infra.md) guide for setup instructions.
 
-Ensure that our LaminHub backend servers are whitelisted so that our servers can access your database. The IP addresses are listed [here](service-endpoints.md)) resoled by AWS region.
+## Endpoint parameters
 
-### Storage
-
-You can optionally provide your S3 bucket to serve as the default storage location of a LaminDB instance.
-
-To give Lamin access to your bucket, attach [this AWS permission policy](bucket-policy.md) ([here is how to do this manually through the AWS console](https://docs.aws.amazon.com/AmazonS3/latest/userguide/add-bucket-policy.html)).
-
-### Endpoint Parameters
-
-- `API_URL`: The URL of the API, depending on your region, pick from [here](service-endpoints.md)
+- `API_URL`: The URL of the API from our [service endpoints documentation](service-endpoints.md)
 - `DB_SERVER_URL`: The URL for the PostgreSQL server in the format `postgresql://postgres:<password>@<host>:<port>/postgres`
 - `NAME`: The name of the LaminDB instance
 
-Optionals:
+Optional parameters:
 
 - `SCHEMA`: The list of schemas you want to mount, e.g., `bionty,wetlab`
 - `STORAGE`: The S3 bucket URI in the format `s3://my-bucket`
 
 ## Create the instance
 
-Install `lamindb_setup` via `pip install lamindb_setup` in case you don't have a lamindb installation.
+Install `lamindb_setup` via `pip install lamindb_setup` if you don't have a lamindb installation.
 
 In your terminal, run `lamin login` to ensure you're authenticated.
 
@@ -46,7 +38,7 @@ To create the instance, run the following python code:
 import requests
 from lamindb_setup import settings
 
-API_URL = "https://us-west-2.api.lamin.ai"  # Update API_URL according to the region where you to deploy.
+API_URL = "https://aws.us-west-2.lamin.ai/api"  # Update API_URL according to your region
 DB_SERVER_URL = "postgresql://postgres:<PASSWORD>@<HOST>:<PORT>/postgres"
 NAME = "YOUR-INSTANCE-NAME"
 SCHEMA_STR = "bionty"
