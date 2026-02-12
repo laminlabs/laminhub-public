@@ -3,12 +3,9 @@
 ---
 # On release, notify lamin-docs to merge docs/changelog/soon/laminhub-public.md into 2026.md.
 # Uses organizational secret LAMIN_BUILD_DOCS (same as doc-changes and lamindb dispatch).
-name: Dispatch changelog merge to lamin-docs
-
 on:
   release:
     types: [published]
-
 jobs:
   dispatch:
     runs-on: ubuntu-latest
