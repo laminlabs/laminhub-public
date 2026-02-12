@@ -2,8 +2,7 @@
 # yamllint disable rule:truthy
 ---
 # On release, notify lamin-docs to merge docs/changelog/soon/laminhub-public.md into 2026.md.
-# Requires secret LAMIN_DOCS_DISPATCH_TOKEN (PAT with repo scope, or at least permission to
-# trigger workflows in laminlabs/lamin-docs).
+# Uses organizational secret LAMIN_BUILD_DOCS (same as doc-changes and lamindb dispatch).
 name: Dispatch changelog merge to lamin-docs
 
 on:
@@ -16,12 +15,12 @@ jobs:
     steps:
       - name: Trigger lamin-docs changelog merge
         env:
-          TOKEN: ${{ secrets.LAMIN_DOCS_DISPATCH_TOKEN }}
+          TOKEN: ${{ secrets.LAMIN_BUILD_DOCS }}
           TAG_NAME: ${{ github.event.release.tag_name }}
           PUBLISHED_AT: ${{ github.event.release.published_at }}
         run: |
           set -euo pipefail
-          test -n "$TOKEN" || { echo "Missing LAMIN_DOCS_DISPATCH_TOKEN"; exit 1; }
+          test -n "$TOKEN" || { echo "Missing LAMIN_BUILD_DOCS"; exit 1; }
           payload=$(jq -n \
             --arg event_type "laminhub-public-release" \
             --arg tag_name "$TAG_NAME" \
