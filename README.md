@@ -1,5 +1,5 @@
 # `laminhub-public`
 
-Version: `1.31.1`
+Version: `1.32.0`
 
 This public repository allows you to make issues & follow new releases. It does not contain the `laminhub` source code.
