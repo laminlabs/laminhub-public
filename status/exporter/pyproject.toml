@@ -1,0 +1,23 @@
+[build-system]
+requires = ["flit_core>=3.11,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "lamin-status"
+version = "0.1.0"
+description = "Public status data and UI for Lamin"
+requires-python = ">=3.11"
+dependencies = ["lamindb>=2.10,<3"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.15"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["B", "E", "F", "I", "UP"]
