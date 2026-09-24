@@ -2,18 +2,16 @@
 
 from __future__ import annotations
 
-import json
 from collections.abc import Callable
 from datetime import UTC, datetime, timedelta
 from typing import Any
-from urllib.error import HTTPError
-from urllib.parse import quote, urlencode, urljoin, urlparse
-from urllib.request import Request, urlopen
+from urllib.parse import quote, urljoin, urlparse
 
+import httpx
 import lamindb as ln
 
 SENTRY_API_URL = "https://us.sentry.io/api/0"
-SENTRY_SECRET_NAME = "sentry-uptime-read-token"
+SENTRY_CREDENTIAL_NAME = "sentry-uptime-read-token"
 HTTP_TIMEOUT_SECONDS = 15
 MAX_PAGES = 50
 
@@ -31,23 +29,29 @@ def _get_json(
     bearer_token: str,
     params: dict[str, Any] | None = None,
 ) -> tuple[Any, dict[str, str]]:
-    if params:
-        separator = "&" if "?" in url else "?"
-        url = f"{url}{separator}{urlencode(params)}"
-    request = Request(
-        url,
-        headers={
-            "Accept": "application/json",
-            "Authorization": f"Bearer {bearer_token}",
-        },
-    )
     try:
-        with urlopen(request, timeout=HTTP_TIMEOUT_SECONDS) as response:  # noqa: S310
-            return json.load(response), dict(response.headers.items())
-    except HTTPError as error:
-        detail = error.read().decode(errors="replace")[:500]
-        msg = f"GET {urlparse(url).path} failed with HTTP {error.code}: {detail}"
+        response = httpx.get(
+            url,
+            params=params,
+            headers={
+                "Accept": "application/json",
+                "Authorization": f"Bearer {bearer_token}",
+            },
+            timeout=HTTP_TIMEOUT_SECONDS,
+        )
+        response.raise_for_status()
+    except httpx.HTTPStatusError as error:
+        detail = error.response.text[:500]
+        msg = (
+            f"GET {urlparse(url).path} failed with HTTP "
+            f"{error.response.status_code}: {detail}"
+        )
         raise RuntimeError(msg) from error
+    except httpx.RequestError as error:
+        msg = f"GET {urlparse(url).path} failed: {error}"
+        raise RuntimeError(msg) from error
+    headers = {key.title(): value for key, value in response.headers.items()}
+    return response.json(), headers
 
 
 def _next_page_url(current_url: str, link_header: str | None) -> str | None:
@@ -104,7 +108,7 @@ def _read_sentry_token(organization_id: str) -> str:
         raise RuntimeError(msg)
     secret_url = (
         f"{api_url.rstrip('/')}/secrets/{quote(organization_id)}/"
-        f"{quote(SENTRY_SECRET_NAME)}"
+        f"{quote(SENTRY_CREDENTIAL_NAME)}"
     )
     response, _ = _get_json(secret_url, access_token)
     try:
@@ -113,7 +117,7 @@ def _read_sentry_token(organization_id: str) -> str:
         msg = "The Lamin organization-secret response did not contain a value"
         raise RuntimeError(msg) from error
     if not isinstance(value, str) or not value:
-        msg = f"Organization secret {SENTRY_SECRET_NAME!r} is empty"
+        msg = f"Organization secret {SENTRY_CREDENTIAL_NAME!r} is empty"
         raise RuntimeError(msg)
     return value
 

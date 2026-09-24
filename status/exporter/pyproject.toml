@@ -7,7 +7,7 @@ name = "lamin-status"
 version = "0.1.0"
 description = "Public status data and UI for Lamin"
 requires-python = ">=3.11"
-dependencies = ["lamindb>=2.10,<3"]
+dependencies = ["httpx>=0.28,<1", "lamindb>=2.10,<3"]
 
 [project.optional-dependencies]
 dev = ["pytest>=8", "ruff>=0.15"]
